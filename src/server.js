@@ -2,15 +2,24 @@ const app = require('express')();
 
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+const BodyParser = require('body-parser');
+const Mongoose = require('mongoose');
+const UserRoute = require('../Routes/userRoutes');
 
 const port = process.env.PORT || 3000;
-const Mongoose = require('mongoose');
 require('dotenv/config');
 
-app.get('/', (req, res) => {
+app.use(BodyParser.urlencoded({
+  extended: true,
+}));
+app.use(BodyParser.json());
+/* app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
 });
-
+app.post('/submit', (req, res) => {
+  console.log(req.body.name);
+}); */
+app.use('/', UserRoute);
 io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
     io.emit('chat message', msg);
