@@ -1,10 +1,11 @@
 const app = require('express')();
-const Mongoose = require('mongoose');
+
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-require('dotenv/config');
 
 const port = process.env.PORT || 3000;
+const Mongoose = require('mongoose');
+require('dotenv/config');
 
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
@@ -22,5 +23,11 @@ io.on('connection', (socket) => {
     useFindAndModify: false,
     useCreateIndex: true,
   });
-  app.listen(port);
+  http.listen(port, () => {
+    console.log(`Socket.IO server running at http://localhost:${port}/`);
+  });
 })();
+// need http.listen not app.listen.
+// restyle SP2 to use mongo DB with http like this.
+// add to database via post LIKE THIS assignment with web page at least.
+// web page post at least. into get info and then display that info on browser for sp2

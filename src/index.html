@@ -19,12 +19,13 @@
 <body>
 <ul id="messages"></ul>
 <form id="form" action="">
-    <label for="input"></label><input id="input" autocomplete="off" /><button>Send</button>
+    <label for="input"></label><input id="input" autocomplete="off" /><button>Submit</button>
 </form>
 <script src="/socket.io/socket.io.js"></script>
 
 <script>
     let socket = io();
+
     let messages = document.getElementById('messages');
     let form = document.getElementById('form');
     let input = document.getElementById('input');
@@ -46,3 +47,4 @@
 </script>
 </body>
 </html>
+
