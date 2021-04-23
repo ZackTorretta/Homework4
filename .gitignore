@@ -74,3 +74,10 @@ typings/
 
 # FuseBox cache
 .fusebox/
+
+# JetBrains Webstorm
+.idea/
+
+# JetBrains Webstorm
+.env
+

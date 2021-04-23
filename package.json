@@ -1,28 +1,27 @@
 {
-  "name": "assignment1",
+  "name": "assignment4",
   "version": "1.0.0",
-  "description": "Homework 3",
-  "main": "server.js",
+  "description": "Homework4",
+  "main": "src/server.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src/**/*.js --fix"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZackTorretta/Homework3.git"
+    "url": "git+https://github.com/ZackTorretta/Homework4.git"
   },
   "author": "Zachary Torretta",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ZackTorretta/Homework3/issues"
+    "url": "https://github.com/ZackTorretta/Homework4/issues"
   },
-  "homepage": "https://github.com/ZackTorretta/Homework3#readme",
+  "homepage": "https://github.com/ZackTorretta/Homework4#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "http-status-codes": "^2.1.4",
     "mongoose": "^5.12.2",
-    "winston": "^3.3.3"
+    "socket.io": "^4.0.1"
   },
   "devDependencies": {
     "eslint": "^7.23.0",

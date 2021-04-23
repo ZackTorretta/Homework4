@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bca4d947-068e-4faf-ac28-f71f49faa2ee" name="Default Changelist" comment="" />
+    <list default="true" id="bca4d947-068e-4faf-ac28-f71f49faa2ee" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Middlewares/dateValidation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Middlewares/logger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Middlewares/methodMiddleware.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorHandlers/errorHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,9 +29,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/errorHandlers/errorHandler.js" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="ProjectId" id="1paHHTHqFa7LwIuLfSqsAOXW6Fl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -35,7 +43,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.15.4" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.37" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SP2/SeniorProjectTwo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -83,6 +91,7 @@
       <workItem from="1617445744340" duration="14621000" />
       <workItem from="1617461601330" duration="395000" />
       <workItem from="1617798163894" duration="11000" />
+      <workItem from="1619143254406" duration="1150000" />
     </task>
     <servers />
   </component>

@@ -1,20 +1,20 @@
-const express = require('express');
-const BodyParser = require('body-parser');
+const app = require('express')();
 const Mongoose = require('mongoose');
-const methodMiddleware = require('../Middlewares/methodMiddleware');
-const dateValidation = require('../Middlewares/dateValidation');
-const logger = require('../Middlewares/logger');
-const router = require('../router/router');
-const error = require('../errorHandlers/errorHandler');
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 require('dotenv/config');
 
-const app = express();
-app.use(BodyParser.json());
-app.use(methodMiddleware);
-app.use(dateValidation);
-app.use(logger);
-app.use(router);
-app.use(error);
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.sendFile(`${__dirname}/index.html`);
+});
+
+io.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
+    io.emit('chat message', msg);
+  });
+});
 (async () => {
   await Mongoose.connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
@@ -22,5 +22,5 @@ app.use(error);
     useFindAndModify: false,
     useCreateIndex: true,
   });
-  app.listen(8080);
+  app.listen(port);
 })();
