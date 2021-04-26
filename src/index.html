@@ -20,17 +20,16 @@
     document.addEventListener('keyup', function(e) {
         e.preventDefault();
         if (input.value) {
-            socket.emit('chat message', input.value);
+            socket.emit('', input.value);
         }
     });
 
-    socket.on('chat message', function(msg) {
+    socket.on('', function(msg) {
+      //only bother doing this if an array is sent back that actually has content
       if (msg.length !== 0)
       {
         let item = document.createElement('li');
-        console.log(msg.length);
         for(let i= 0; i < msg.length; i++) {
-          console.log(msg[i].name);
           item.textContent += msg[i].name + ' ';
         }
         messages.appendChild(item);

@@ -37,9 +37,12 @@ app.post('/', (req, res) => {
     });
 });
 io.on('connection', (socket) => {
-  socket.on('chat message', (msg) => {
+  socket.on('', (msg) => {
     User.find({ name: new RegExp(msg, 'i') }, (err, docs) => {
-      io.emit('chat message', docs);
+      // IMPORTANT NOTE: this is for if it CONTAINS something. Not if it STARTS with something
+      // no previous bullets are required to be cleared. They will continue being displayed.
+      // However, of course it will clear the page once submit is pressed.
+      io.emit('', docs);
     });
   });
 });
