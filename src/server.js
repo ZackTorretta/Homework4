@@ -1,13 +1,17 @@
-const app = require('express')();
+const express = require('express');
 
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const app = express();
+const http = require('http');
+
+const server = http.createServer(app);
+const { Server } = require('socket.io');
+
+const io = new Server(server);
 const BodyParser = require('body-parser');
 const Mongoose = require('mongoose');
-const UserRoute = require('../Routes/userRoutes');
 const User = require('../models/user');
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 require('dotenv/config');
 
 app.use(BodyParser.urlencoded({
@@ -17,14 +21,26 @@ app.use(BodyParser.json());
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
 });
-app.post('/submit', (req, res) => {
-  console.log(req.body.name);
-  User.collection;
+app.post('/', (req, res) => {
+  const user = new User(req.body);
+  user.save()
+    .then(() => {
+      res.redirect('/');
+    })
+    .catch((e) => {
+      res.sendStatus(
+        e.code === 11000
+        || e.stack.includes('ValidationError')
+        || (e.reason !== undefined && e.reason.code === 'ERR_ASSERTION')
+          ? 400 : 500,
+      );
+    });
 });
-/* app.use('/', UserRoute); */
 io.on('connection', (socket) => {
   socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+    User.find({ name: new RegExp(msg, 'i') }, (err, docs) => {
+      io.emit('chat message', docs);
+    });
   });
 });
 (async () => {
@@ -34,8 +50,7 @@ io.on('connection', (socket) => {
     useFindAndModify: false,
     useCreateIndex: true,
   });
-  http.listen(port, () => {
-    console.log(`Socket.IO server running at http://localhost:${port}/`);
+  server.listen(port, () => {
   });
 })();
 // need http.listen not app.listen.
