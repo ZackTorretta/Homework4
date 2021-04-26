@@ -56,7 +56,3 @@ io.on('connection', (socket) => {
   server.listen(port, () => {
   });
 })();
-// need http.listen not app.listen.
-// restyle SP2 to use mongo DB with http like this.
-// add to database via post LIKE THIS assignment with web page at least.
-// web page post at least. into get info and then display that info on browser for sp2

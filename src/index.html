@@ -6,15 +6,13 @@
 
 <form action="/" method="POST">
     <label for="input"></label><input id="input" name="name" placeholder="Enter Name" required autocomplete="off">
-    <input type="submit" value="Submit">
+    <br><input type="submit" value="Submit"> //submit below box like stated in assignment
 </form>
-
 <script src="/socket.io/socket.io.js"></script>
-
 <script>
     let socket = io();
 
-    let messages = document.getElementById('messages');
+    let messages = document.getElementById('messages');//kept messages as the name
     let input = document.getElementById('input');
 
     document.addEventListener('keyup', function(e) {
@@ -29,11 +27,15 @@
       if (msg.length !== 0)
       {
         let item = document.createElement('li');
+        if (messages.hasChildNodes() === true){
+          //if there is something there, well, remove it so we can add new ones.
+          //This allows the previous bullets to be removed.
+          messages.removeChild(messages.childNodes[0]);
+        }
         for(let i= 0; i < msg.length; i++) {
           item.textContent += msg[i].name + ' ';
         }
         messages.appendChild(item);
-        window.scrollTo(0, document.body.scrollHeight);
       }
     });
 </script>
