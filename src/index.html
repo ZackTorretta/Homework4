@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html lang="">
 <body>
-<ul id="messages"></ul>
+<ul id="messages">
+</ul>
 
 <form action="/" method="POST">
     <label for="input"></label><input id="input" name="name" placeholder="Enter Name" required autocomplete="off">
@@ -26,16 +27,21 @@
       //only bother doing this if an array is sent back that actually has content
       if (msg.length !== 0)
       {
-        let item = document.createElement('li');
         if (messages.hasChildNodes() === true){
           //if there is something there, well, remove it so we can add new ones.
           //This allows the previous bullets to be removed.
-          messages.removeChild(messages.childNodes[0]);
+          while (messages.firstChild){
+            messages.removeChild(messages.firstChild);
+          }
         }
         for(let i= 0; i < msg.length; i++) {
-          item.textContent += msg[i].name + ' ';
+          //list created here instead of declared above. Because must have multiple bullets
+          //a bullet for each auto-complete
+          let item = document.createElement('li');
+          item.textContent = msg[i].name;
+          messages.appendChild(item);
         }
-        messages.appendChild(item);
+        window.scrollTo(0, document.body.scrollHeight);
       }
     });
 </script>
